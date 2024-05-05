@@ -1,0 +1,36 @@
+import { Alert, StyleSheet, Text, View, Image, FlatList, ActivityIndicator, Dimensions, BackHandler } from 'react-native'
+import React, { useState, useEffect, useRef } from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { apiURL, getData, MYAPP, storeData, webURL } from '../../utils/localStorage';
+import { colors, fonts, windowHeight, windowWidth } from '../../utils';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { showMessage } from 'react-native-flash-message';
+import Sound from 'react-native-sound';
+import { Icon } from 'react-native-elements/dist/icons/Icon';
+import { MyButton, MyGap, MyHeader, MyInput } from '../../components';
+import { useIsFocused } from '@react-navigation/native';
+import axios from 'axios';
+import { FloatingAction } from "react-native-floating-action";
+import 'intl';
+import 'intl/locale-data/jsonp/en';
+import Webview from "react-native-webview";
+export default function SiswaNilaiHasil({ navigation, route }) {
+    const item = route.params;
+    return (
+        <SafeAreaView style={{
+            flex: 1,
+            backgroundColor: colors.white
+        }}>
+            <MyHeader judul="Hasi Nilai Rapor" />
+            <View style={{
+                flex: 1,
+            }}>
+                <Webview source={{
+                    uri: 'https://siakademik.okeadmin.com/nilai/detail/' + item.id
+                }} />
+            </View>
+        </SafeAreaView>
+    )
+}
+
+const styles = StyleSheet.create({})
