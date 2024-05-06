@@ -125,7 +125,7 @@ export default function Home({ navigation, route }) {
         flex: 1,
         backgroundColor: colors.background,
         padding: 20,
-        justifyContent: 'center'
+        justifyContent: 'flex-start'
       }}>
         <View style={{
           flexDirection: 'row',

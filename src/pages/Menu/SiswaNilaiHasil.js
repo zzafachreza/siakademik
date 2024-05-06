@@ -21,7 +21,7 @@ export default function SiswaNilaiHasil({ navigation, route }) {
             flex: 1,
             backgroundColor: colors.white
         }}>
-            <MyHeader judul="Hasi Nilai Rapor" />
+            <MyHeader judul="Hasi Nilai Rapor" onPress={() => navigation.goBack()} />
             <View style={{
                 flex: 1,
             }}>

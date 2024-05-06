@@ -54,7 +54,7 @@ export default function Menu1a({ navigation, route }) {
                     <MyList no={1} label="Buku Laporan Penilaian Perkembangan Anak ini dipergunakan di lembaga PAUD sesuai dengan usia kalender anak." />
                     <MyList no={2} label="Buku Laporan Penilaian Perkembangan Anak Didik ini diisi oleh Guru Kelas." />
                     <MyList no={3} label="Penilaian perkembangan diisi dengan memberi  tanda ceklis (✓) atau memberi tanda bulat (●) pada kolom hasil pengamatan yang di sediakan." />
-                    <MyList no={4} label="Pengematan dilakukan dengan menggunakan teknik-teknik penilaian sebagai berikut : " />
+                    <MyList no={4} label="Pengamatan dilakukan dengan menggunakan teknik-teknik penilaian sebagai berikut : " />
                     <Text style={{
                         marginVertical: 5,
                         marginLeft: 30,
@@ -62,7 +62,7 @@ export default function Menu1a({ navigation, route }) {
                         fontSize: 14,
                         color: colors.black,
                     }}>BM = Belum Muncul{'\n'}
-                        Kemampuan anak telah terlihat, guru perlu memberi rangsangar agar kemampuannya muncul dan orang tua perlu mendukung dengan memupuknya dirumah.</Text>
+                        Kemampuan anak telah terlihat, guru perlu memberi rangsangan agar kemampuannya muncul dan orang tua perlu mendukung dengan memupuknya dirumah.</Text>
 
                     <Text style={{
                         marginVertical: 5,

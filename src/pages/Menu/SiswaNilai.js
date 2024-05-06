@@ -100,7 +100,7 @@ export default function SiswaNilai({ navigation, route }) {
             value: 0,
         },
         {
-            label: 'Baung air kecil tanpa bantuan',
+            label: 'Buang air kecil tanpa bantuan',
             value: 0,
         },
         {

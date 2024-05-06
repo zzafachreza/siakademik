@@ -36,6 +36,7 @@ export default function Menu1({ navigation, route }) {
                     <TouchableWithoutFeedback onPress={() => navigation.navigate('Menu1a')}>
                         <View style={{
                             flex: 1,
+                            height: 130,
                             borderRadius: 10,
                             marginRight: 10,
                             backgroundColor: colors.primary,
@@ -60,6 +61,7 @@ export default function Menu1({ navigation, route }) {
                         <View style={{
                             flex: 1,
                             borderRadius: 10,
+                            height: 130,
                             marginLeft: 10,
                             backgroundColor: colors.primary,
                             padding: 10,
