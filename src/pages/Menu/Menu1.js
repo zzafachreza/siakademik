@@ -52,7 +52,7 @@ export default function Menu1({ navigation, route }) {
                             <Text style={{
                                 fontFamily: fonts.secondary[600],
                                 color: colors.white,
-                                fontSize: 14,
+                                fontSize: 12,
                                 textAlign: 'center'
                             }}>Petunjuk Penggunaan</Text>
                         </View>
@@ -76,7 +76,7 @@ export default function Menu1({ navigation, route }) {
                             <Text style={{
                                 fontFamily: fonts.secondary[600],
                                 color: colors.white,
-                                fontSize: 14,
+                                fontSize: 12,
                                 textAlign: 'center'
                             }}>Keterangan Diri Anak</Text>
                         </View>
