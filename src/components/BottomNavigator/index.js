@@ -82,9 +82,9 @@ export default function BottomNavigator({ state, descriptors, navigation }) {
         if (label === 'Home') {
           iconName = 'home-outline';
           Newlabel = 'Beranda';
-        } else if (label === 'Maps') {
-          iconName = 'navigate-circle-outline';
-
+        } else if (label === 'AbsenData') {
+          iconName = 'list-outline';
+          Newlabel = 'Riwayat Absen';
         } else if (label === 'TanyaJawab') {
           iconName = 'chatbubbles-outline';
           Newlabel = 'Tanya Jawab';

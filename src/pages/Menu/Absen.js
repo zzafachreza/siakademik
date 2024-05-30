@@ -15,6 +15,7 @@ export default function Absen({ navigation, route }) {
     const item = route.params;
     const [kirim, setKirim] = useState({
         nama: '',
+        jenis: 'Masuk',
         tanggal: moment().format('YYYY-MM-DD'),
         kehadiran: 'Hadir',
         foto_absen: 'https://zavalabs.com/nogambar.jpg',
@@ -50,29 +51,7 @@ export default function Absen({ navigation, route }) {
         }
     }
 
-    const requestCameraPermission = async () => {
-        try {
-            const granted = await PermissionsAndroid.request(
-                PermissionsAndroid.PERMISSIONS.CAMERA,
-                {
-                    title: 'Cool Photo App Camera Permission',
-                    message:
-                        'Cool Photo App needs access to your camera ' +
-                        'so you can take awesome pictures.',
-                    buttonNeutral: 'Ask Me Later',
-                    buttonNegative: 'Cancel',
-                    buttonPositive: 'OK',
-                },
-            );
-            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-                console.log('You can use the camera');
-            } else {
-                console.log('Camera permission denied');
-            }
-        } catch (err) {
-            console.warn(err);
-        }
-    };
+
 
     const requestLocationPermission = async () => {
         try {
@@ -99,11 +78,11 @@ export default function Absen({ navigation, route }) {
     };
 
     useEffect(() => {
-        requestCameraPermission();
+
         requestLocationPermission();
         GetLocation.getCurrentPosition({
             enableHighAccuracy: true,
-            timeout: 25000,
+            timeout: 15000,
         })
             .then(location => {
                 console.log('lokasi', location);
@@ -182,6 +161,16 @@ export default function Absen({ navigation, route }) {
                             uri: kirim.foto_absen,
                         }} />
                     </TouchableOpacity>
+                    <MyPicker label="Jenis Absen" iconname="options" onValueChange={x => {
+                        setKirim({
+                            ...kirim,
+                            jenis: x
+                        })
+                    }} data={[
+                        { value: 'Masuk', label: 'Masuk' },
+                        { value: 'Pulang', label: 'Pulang' },
+                    ]} />
+                    <MyGap jarak={20} />
                     <MyInput label="Nama Lengkap" iconname="person-outline" onChangeText={x => setKirim({
                         ...kirim,
                         nama: x

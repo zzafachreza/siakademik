@@ -33,28 +33,40 @@ export default function AbsenData({ navigation, route }) {
             <View style={{
                 flex: 1,
                 position: 'relative',
-                backgroundColor: colors.primary,
+                backgroundColor: item.jenis == 'Masuk' ? colors.success : colors.primary,
                 padding: 10,
                 borderRadius: 10,
                 margin: 4,
-                overflow: 'hidden'
+                overflow: 'hidden',
+                flexDirection: 'row'
             }}>
-                <Text style={{
-                    fontFamily: fonts.secondary[800],
-                    color: colors.white,
-                    fontSize: MyDimensi / 3
-                }}>{item.kehadiran}</Text>
-                <Text style={{
-                    fontFamily: fonts.secondary[600],
-                    color: colors.white,
-                    fontSize: MyDimensi / 4
-                }}>{item.nama}</Text>
+                <View style={{
+                    flex: 1
+                }}>
+                    <Text style={{
+                        fontFamily: fonts.secondary[800],
+                        color: colors.white,
+                        fontSize: 20
+                    }}>{item.kehadiran}</Text>
+                    <Text style={{
+                        fontFamily: fonts.secondary[600],
+                        color: colors.white,
+                        fontSize: MyDimensi / 4
+                    }}>{item.nama}</Text>
 
-                <Text style={{
-                    fontFamily: fonts.secondary[400],
-                    color: colors.white,
-                    fontSize: MyDimensi / 5
-                }}>{moment(item.tanggal).format('dddd, DD MMM YYYY')}</Text>
+                    <Text style={{
+                        fontFamily: fonts.secondary[400],
+                        color: colors.white,
+                        fontSize: MyDimensi / 5
+                    }}>{moment(item.tanggal).format('dddd, DD MMM YYYY')}</Text>
+                </View>
+                <View>
+                    <Text style={{
+                        fontFamily: fonts.secondary[800],
+                        color: colors.white,
+                        fontSize: 14
+                    }}>Absen {item.jenis}</Text>
+                </View>
             </View>
 
         )
@@ -69,7 +81,7 @@ export default function AbsenData({ navigation, route }) {
             backgroundColor: colors.white
         }}>
 
-            <MyHeader judul="Resep" onPress={() => navigation.goBack()} />
+            <MyHeader judul="Riwayat Absen Guru" onPress={() => navigation.goBack()} />
             {!loading &&
                 <View style={{
                     flex: 1,
@@ -102,7 +114,7 @@ export default function AbsenData({ navigation, route }) {
                         <TextInput value={key} onChangeText={x => {
                             setKey(x);
                             if (x.length > 0) {
-                                let TMPSrc = data.filter(i => i.judul.toLowerCase().indexOf(x.toLowerCase()) > -1);
+                                let TMPSrc = data.filter(i => i.nama.toLowerCase().indexOf(x.toLowerCase()) > -1);
                                 if (TMPSrc.length > 0) {
                                     setData(TMPSrc);
                                 }

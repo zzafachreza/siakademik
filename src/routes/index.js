@@ -67,6 +67,7 @@ const MainApp = () => {
   return (
     <Tab.Navigator initialRouteName='Produk' tabBar={props => <BottomNavigator {...props} />}>
       <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="AbsenData" component={AbsenData} />
       <Tab.Screen name="Account" component={Account} />
     </Tab.Navigator>
   );
