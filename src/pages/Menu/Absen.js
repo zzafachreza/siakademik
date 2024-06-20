@@ -14,7 +14,7 @@ import { WebView } from 'react-native-webview';
 export default function Absen({ navigation, route }) {
     const item = route.params;
     const [kirim, setKirim] = useState({
-        nama: '',
+        nama: item.nama_lengkap,
         jenis: 'Masuk',
         tanggal: moment().format('YYYY-MM-DD'),
         kehadiran: 'Hadir',
@@ -171,7 +171,7 @@ export default function Absen({ navigation, route }) {
                         { value: 'Pulang', label: 'Pulang' },
                     ]} />
                     <MyGap jarak={20} />
-                    <MyInput label="Nama Lengkap" iconname="person-outline" onChangeText={x => setKirim({
+                    <MyInput value={kirim.nama} label="Nama Lengkap" iconname="person-outline" onChangeText={x => setKirim({
                         ...kirim,
                         nama: x
                     })} />

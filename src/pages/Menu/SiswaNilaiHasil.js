@@ -1,4 +1,4 @@
-import { Alert, StyleSheet, Text, View, Image, FlatList, ActivityIndicator, Dimensions, BackHandler } from 'react-native'
+import { Alert, StyleSheet, Text, View, Image, FlatList, ActivityIndicator, Dimensions, BackHandler, Linking } from 'react-native'
 import React, { useState, useEffect, useRef } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { apiURL, getData, MYAPP, storeData, webURL } from '../../utils/localStorage';
@@ -25,10 +25,11 @@ export default function SiswaNilaiHasil({ navigation, route }) {
             <View style={{
                 flex: 1,
             }}>
-                <Webview source={{
+                <Webview injectedJavaScript='window.print()' source={{
                     uri: 'https://siakademik.okeadmin.com/nilai/detail/' + item.id
                 }} />
             </View>
+            <MyButton radius={0} title="Print" warna={colors.danger} onPress={() => Linking.openURL('https://siakademik.okeadmin.com/nilai/detail/' + item.id)} />
         </SafeAreaView>
     )
 }

@@ -153,7 +153,7 @@ export default function Home({ navigation, route }) {
           flexDirection: 'row',
           alignItems: 'center'
         }}>
-          <TouchableNativeFeedback onPress={() => navigation.navigate('Absen')}>
+          <TouchableNativeFeedback onPress={() => navigation.navigate('Absen', user)}>
             <View style={{
               flex: 1,
               borderRadius: 10,
