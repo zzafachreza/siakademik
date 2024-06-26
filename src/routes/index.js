@@ -50,6 +50,7 @@ import {
   Siswa,
   SiswaNilai,
   SiswaNilaiHasil,
+  AbsenDetail,
 
 
 } from '../pages';
@@ -79,6 +80,14 @@ export default function Router() {
       <Stack.Screen
         name="Splash"
         component={Splash}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="AbsenDetail"
+        component={AbsenDetail}
         options={{
           headerShown: false,
         }}

@@ -46,6 +46,7 @@ import AbsenData from './Menu/AbsenData';
 import Siswa from './Menu/Siswa';
 import SiswaNilai from './Menu/SiswaNilai';
 import SiswaNilaiHasil from './Menu/SiswaNilaiHasil';
+import AbsenDetail from './Menu/AbsenDetail';
 
 
 
@@ -111,6 +112,7 @@ export {
   AsupanMpasi,
   AsupanAsi,
   StatusGizi,
-  StatusGiziHasil
+  StatusGiziHasil,
+  AbsenDetail
 
 };

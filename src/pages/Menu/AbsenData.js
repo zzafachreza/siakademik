@@ -7,6 +7,7 @@ import axios from 'axios';
 import { apiURL } from '../../utils/localStorage';
 import moment from 'moment';
 import { MyHeader } from '../../components';
+import { useIsFocused } from '@react-navigation/native';
 export default function AbsenData({ navigation, route }) {
     const item = route.params;
     const [data, setData] = useState({});
@@ -23,51 +24,58 @@ export default function AbsenData({ navigation, route }) {
         })
     }
 
+    const isFocus = useIsFocused();
+
     useEffect(() => {
-        getDataTransaksi();
-    }, []);
+        if (isFocus) {
+            getDataTransaksi();
+        }
+
+    }, [isFocus]);
 
     const __renderItem = ({ item }) => {
         return (
 
-            <View style={{
-                flex: 1,
-                position: 'relative',
-                backgroundColor: item.jenis == 'Masuk' ? colors.success : colors.primary,
-                padding: 10,
-                borderRadius: 10,
-                margin: 4,
-                overflow: 'hidden',
-                flexDirection: 'row'
-            }}>
+            <TouchableWithoutFeedback onPress={() => navigation.navigate('AbsenDetail', item)}>
                 <View style={{
-                    flex: 1
+                    flex: 1,
+                    position: 'relative',
+                    backgroundColor: item.jenis == 'Masuk' ? colors.success : colors.primary,
+                    padding: 10,
+                    borderRadius: 10,
+                    margin: 4,
+                    overflow: 'hidden',
+                    flexDirection: 'row'
                 }}>
-                    <Text style={{
-                        fontFamily: fonts.secondary[800],
-                        color: colors.white,
-                        fontSize: 20
-                    }}>{item.kehadiran}</Text>
-                    <Text style={{
-                        fontFamily: fonts.secondary[600],
-                        color: colors.white,
-                        fontSize: MyDimensi / 4
-                    }}>{item.nama}</Text>
+                    <View style={{
+                        flex: 1
+                    }}>
+                        <Text style={{
+                            fontFamily: fonts.secondary[800],
+                            color: colors.white,
+                            fontSize: 20
+                        }}>{item.kehadiran}</Text>
+                        <Text style={{
+                            fontFamily: fonts.secondary[600],
+                            color: colors.white,
+                            fontSize: MyDimensi / 4
+                        }}>{item.nama}</Text>
 
-                    <Text style={{
-                        fontFamily: fonts.secondary[400],
-                        color: colors.white,
-                        fontSize: MyDimensi / 5
-                    }}>{moment(item.tanggal).format('dddd, DD MMM YYYY')}</Text>
+                        <Text style={{
+                            fontFamily: fonts.secondary[400],
+                            color: colors.white,
+                            fontSize: MyDimensi / 5
+                        }}>{moment(item.tanggal).format('dddd, DD MMM YYYY')}</Text>
+                    </View>
+                    <View>
+                        <Text style={{
+                            fontFamily: fonts.secondary[800],
+                            color: colors.white,
+                            fontSize: 14
+                        }}>Absen {item.jenis}</Text>
+                    </View>
                 </View>
-                <View>
-                    <Text style={{
-                        fontFamily: fonts.secondary[800],
-                        color: colors.white,
-                        fontSize: 14
-                    }}>Absen {item.jenis}</Text>
-                </View>
-            </View>
+            </TouchableWithoutFeedback>
 
         )
     }

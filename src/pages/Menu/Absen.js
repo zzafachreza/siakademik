@@ -143,8 +143,9 @@ export default function Absen({ navigation, route }) {
 
 
                     }} style={{
-                        width: 200,
-                        height: 200,
+                        position: 'relative',
+                        width: 300,
+                        height: 400,
                         marginBottom: 40,
                         alignSelf: 'center',
                         borderWidth: 1,
@@ -155,11 +156,35 @@ export default function Absen({ navigation, route }) {
                         alignItems: 'center'
                     }}>
                         <Image style={{
-                            width: 200,
-                            height: 200,
+                            width: 300,
+                            height: 400,
                         }} source={{
                             uri: kirim.foto_absen,
                         }} />
+                        {kirim.foto_absen !== 'https://zavalabs.com/nogambar.jpg' &&
+
+                            <View style={{
+                                left: 5,
+                                position: 'absolute',
+                                bottom: 10,
+                            }}>
+                                <Text style={{
+                                    fontFamily: fonts.secondary[800],
+                                    color: colors.white,
+                                    fontSize: 14,
+                                }}>Absen {item.jenis}</Text>
+                                <Text style={{
+                                    fontFamily: fonts.secondary[600],
+                                    color: colors.white,
+                                    fontSize: 18,
+                                }}>{moment().format('dddd, DD MMMM YYYY HH:mm:ss')}</Text>
+                                <Text style={{
+                                    fontFamily: fonts.secondary[600],
+                                    color: colors.white,
+                                    fontSize: 14,
+                                }}>{kirim.latitude}, {kirim.longitude}</Text>
+                            </View>
+                        }
                     </TouchableOpacity>
                     <MyPicker label="Jenis Absen" iconname="options" onValueChange={x => {
                         setKirim({
