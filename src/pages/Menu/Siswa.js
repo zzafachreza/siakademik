@@ -1,10 +1,10 @@
-import { FlatList, Image, Linking, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { Alert, FlatList, Image, Linking, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { MyDimensi, colors, fonts, windowHeight, windowWidth } from '../../utils'
 import { MyButton, MyGap, MyHeader, MyInput, MyPicker } from '../../components'
 import axios from 'axios';
-import { apiURL, webURL } from '../../utils/localStorage'
+import { MYAPP, apiURL, webURL } from '../../utils/localStorage'
 import { showMessage } from 'react-native-flash-message'
 import RenderHtml from 'react-native-render-html';
 import moment from 'moment'
@@ -66,7 +66,7 @@ export default function Siswa({ navigation, route }) {
                         fontSize: 14
                     }}>Foto</Text>
                     <Image source={{
-                        uri: item.file_siswa
+                        uri: webURL + item.file_siswa
                     }} style={{
                         width: 150,
                         height: 150,
@@ -80,7 +80,7 @@ export default function Siswa({ navigation, route }) {
                         fontSize: 14
                     }}>Tanda Tangan dan Cap</Text>
                     <Image source={{
-                        uri: item.file_ttd
+                        uri: webURL + item.file_ttd
                     }} style={{
                         width: 150,
                         height: 150,
@@ -91,7 +91,32 @@ export default function Siswa({ navigation, route }) {
                 <MyButton onPress={() => navigation.navigate('SiswaNilai', item)} title="Input Nilai Siswa" Icons="create" />
 
                 <MyGap jarak={20} />
+
                 <MyButton title="Lihat Nilai Rapor" warna={colors.secondary} onPress={() => navigation.navigate('SiswaNilaiHasil', item)} Icons="list" />
+                <MyGap jarak={20} />
+                <MyButton title="Edit Siswa" warna={colors.tertiary} onPress={() => navigation.navigate('SiswaEdit', item)} Icons="create" />
+                <MyGap jarak={20} />
+                <MyButton title="Hapus Siswa" warna={colors.danger} onPress={() => {
+                    Alert.alert(MYAPP, 'Apakah kamu yakin akan hapus ini ?', [
+                        {
+                            text: 'TIDAK'
+                        }, {
+                            text: 'YA, HAPUS',
+                            onPress: () => {
+                                axios.post(apiURL + 'delete_siswa', {
+                                    id: item.id_siswa
+                                }).then(res => {
+                                    if (res.data == 200) {
+                                        navigation.goBack();
+                                        showMessage({ type: 'success', message: 'Data berhasil di hapus !' })
+                                    }
+                                })
+                            }
+                        }
+
+                    ])
+                }} Icons="trash" />
+
                 <MyGap jarak={40} />
 
             </ScrollView>

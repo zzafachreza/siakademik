@@ -1,4 +1,4 @@
-import { ActivityIndicator, FlatList, Image, Linking, SafeAreaView, StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from 'react-native'
+import { ActivityIndicator, FlatList, Image, Linking, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { MyDimensi, colors, fonts, windowHeight, windowWidth } from '../../utils'
 import { Icon } from 'react-native-elements';
@@ -7,6 +7,13 @@ import axios from 'axios';
 import { apiURL } from '../../utils/localStorage';
 import moment from 'moment';
 import { MyHeader } from '../../components';
+import { useIsFocused, useNavigation } from '@react-navigation/native';
+
+
+
+
+
+
 export default function Menu1b({ navigation, route }) {
     const item = route.params;
     const [data, setData] = useState({});
@@ -23,9 +30,13 @@ export default function Menu1b({ navigation, route }) {
         })
     }
 
+    const isFocus = useIsFocused();
     useEffect(() => {
-        getDataTransaksi();
-    }, []);
+        if (isFocus) {
+            getDataTransaksi();
+        }
+
+    }, [isFocus]);
 
     const __renderItem = ({ item }) => {
         return (
@@ -80,6 +91,7 @@ export default function Menu1b({ navigation, route }) {
 
         )
     }
+
 
     const [key, setKey] = useState('');
     const [TMP, setTMP] = useState({});
@@ -143,6 +155,19 @@ export default function Menu1b({ navigation, route }) {
                     </View>
                     <FlatList data={data} numColumns={1} showsVerticalScrollIndicator={false} renderItem={__renderItem} />
 
+                    <TouchableOpacity onPress={() => navigation.navigate('SiswaAdd')} style={{
+                        width: 60,
+                        position: 'absolute',
+                        bottom: 20,
+                        right: 20,
+                        height: 60,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        backgroundColor: colors.primary,
+                        borderRadius: 40,
+                    }}>
+                        <Icon type='ionicon' name='add' size={40} color={colors.white} />
+                    </TouchableOpacity>
                 </View>
             }
             {loading &&

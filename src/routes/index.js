@@ -51,6 +51,8 @@ import {
   SiswaNilai,
   SiswaNilaiHasil,
   AbsenDetail,
+  SiswaAdd,
+  SiswaEdit,
 
 
 } from '../pages';
@@ -88,6 +90,23 @@ export default function Router() {
       <Stack.Screen
         name="AbsenDetail"
         component={AbsenDetail}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="SiswaAdd"
+        component={SiswaAdd}
+        options={{
+          headerShown: false,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="SiswaEdit"
+        component={SiswaEdit}
         options={{
           headerShown: false,
         }}

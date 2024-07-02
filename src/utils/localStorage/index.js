@@ -26,4 +26,8 @@ export const api_token = 'd4e729bcd8aab6f0a710e8ca3d31524cb5783dd1d63ddbf32fbed2
 export const webURL = apiURL.replace("api/", "");
 export const webPDF = apiURL.replace("api/", "assets/pdf/");
 
+export const UcFirst = (string) => {
+  return string.toString().replace("_", " ").replace(/(^\w|\s\w)/g, m => m.toUpperCase());
+}
+
 

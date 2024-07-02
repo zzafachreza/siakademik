@@ -47,7 +47,8 @@ import Siswa from './Menu/Siswa';
 import SiswaNilai from './Menu/SiswaNilai';
 import SiswaNilaiHasil from './Menu/SiswaNilaiHasil';
 import AbsenDetail from './Menu/AbsenDetail';
-
+import SiswaAdd from './Menu/SiswaAdd';
+import SiswaEdit from './Menu/SiswaEdit';
 
 
 
@@ -93,7 +94,8 @@ export {
 
   FormulirEdit,
 
-
+  SiswaAdd,
+  SiswaEdit,
 
 
 
