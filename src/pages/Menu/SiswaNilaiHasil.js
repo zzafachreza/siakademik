@@ -21,12 +21,12 @@ export default function SiswaNilaiHasil({ navigation, route }) {
             flex: 1,
             backgroundColor: colors.white
         }}>
-            <MyHeader judul="Hasi Nilai Rapor" onPress={() => navigation.goBack()} />
+            <MyHeader judul="Hasi Nilai Rapot" onPress={() => navigation.goBack()} />
             <View style={{
                 flex: 1,
             }}>
                 <Webview injectedJavaScript='window.print()' source={{
-                    uri: 'https://siakademik.okeadmin.com/nilai/detail/' + item.id
+                    uri: 'https://siakademik.okeadmin.com/nilai/detail/' + item.id_siswa
                 }} />
             </View>
             <MyButton radius={0} title="Print" warna={colors.danger} onPress={() => Linking.openURL('https://siakademik.okeadmin.com/nilai/detail/' + item.id)} />

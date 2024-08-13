@@ -45,8 +45,8 @@ export default function Menu1({ navigation, route }) {
                             alignItems: 'center'
                         }}>
                             <Image source={require('../../assets/a3.png')} style={{
-                                width: 100,
-                                height: 100,
+                                width: windowWidth / 5,
+                                height: windowWidth / 5,
                                 marginBottom: 10,
                             }} />
                             <Text style={{
@@ -69,8 +69,8 @@ export default function Menu1({ navigation, route }) {
                             alignItems: 'center'
                         }}>
                             <Image source={require('../../assets/a2.png')} style={{
-                                width: 100,
-                                height: 100,
+                                width: windowWidth / 5,
+                                height: windowWidth / 5,
                                 marginBottom: 10,
                             }} />
                             <Text style={{

@@ -12,6 +12,7 @@ import { Icon } from 'react-native-elements'
 export default function SiswaNilai({ navigation, route }) {
 
     const item = route.params;
+    console.log(item)
 
     const [soal, setSoal] = useState([
 
@@ -127,7 +128,7 @@ export default function SiswaNilai({ navigation, route }) {
     ])
 
     const [kirim, setKirim] = useState({
-        fid_siswa: route.params.id,
+        fid_siswa: route.params.id_siswa,
         n1: '',
         n2: '',
         n3: '',

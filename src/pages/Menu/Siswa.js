@@ -92,7 +92,7 @@ export default function Siswa({ navigation, route }) {
 
                 <MyGap jarak={20} />
 
-                <MyButton title="Lihat Nilai Rapor" warna={colors.secondary} onPress={() => navigation.navigate('SiswaNilaiHasil', item)} Icons="list" />
+                <MyButton title="Lihat Nilai Rapot" warna={colors.secondary} onPress={() => navigation.navigate('SiswaNilaiHasil', item)} Icons="list" />
                 <MyGap jarak={20} />
                 <MyButton title="Edit Siswa" warna={colors.tertiary} onPress={() => navigation.navigate('SiswaEdit', item)} Icons="create" />
                 <MyGap jarak={20} />
